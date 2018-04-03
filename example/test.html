@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,27 @@
     <title>Document</title>
     <script src="../assets/js/vue.js"></script>
 </head>
-<body>
-    test Vue
+
+<body>   
+    <div id="box">
+        <input type="text" v-model="msg">
+        <br/> {{msg}}
+        <br/> {{msg1}}
+        <br/> {{arr}}
+        <br/> {{json}}
+    </div>
+    <script type="text/javascript">
+        
+        new Vue({
+            el: '#box',
+            data: {
+                msg: "1111",
+                msg1: "welcome",
+                arr: ["apple","orange"],
+                json: {a: 'apple', b: 'oraneg'}
+            }
+        })
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <script src="../assets/js/jquery-1.11.1.min.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form role="form">
+            <div class="form-group">
+                <label for="username">用户名:</label>
+                <input type="text" id="username" class="form-control" placeholder="输入用户名">
+            </div>
+            <div class="form-group">
+                <label for="age">年 龄:</label>
+                <input type="text" id="age" class="form-control" placeholder="输入年龄">
+            </div>
+            <div class="form-group">               
+                <input type="button" value="添加" class="btn btn-primary">
+                <input type="button" value="重置" class="btn btn-danger">
+            </div>
+        </form>
+        <hr>
+        <table class="table table-bordered table-hover">
+            <caption class="h2 text-danger">用户信息表</caption>
+            <tr>
+                <th class="text-center">序号</th>
+                <th class="text-center">名字</th>
+                <th class="text-center">年龄</th>
+                <th class="text-center">操作</th>
+            </tr>
+            <tr>
+                <td class="text-center">1</td>
+                <td class="text-center">blue</td>
+                <td class="text-center">20</td>
+                <td class="text-center">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#layer">删除</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="text-right">
+                <button type="button" class="btn btn-danger">全部删除</button>
+                </td>
+                
+            </tr>
+            <tr>
+                <td colspan="4" class="text-center text-muted">
+                    <p class="text-center">暂无数据....</p>
+                </td>
+            </tr>
+        </table>
+
+        <!-- 模态框 -->
+        <div role="dialog" class="modal fade" id="layer">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                        <h4 class="modal-title">确认删除吗?</h4>
+                    </div>
+                    <div class="modal-body text-right">
+                        
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

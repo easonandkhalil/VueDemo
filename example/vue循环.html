@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>   
+    <div id="box">
+
+        <ul>
+            <!-- vue的数据循环 vue2.x后可改写成 v-for="(value,index) in arr" {{value}}{{index}}实现索引 -->
+            <li v-for="(value, index) in arr">
+                {{value}} {{index}}
+            </li>
+        </ul>
+        <hr/>
+        <ul>
+            <!-- index是key... key是索引...很奇怪 -->
+            <li v-for="(value, index, key) in json">
+                {{value}} {{index}} {{key}}
+            </li>
+        </ul>
+        <ul>
+            <!-- index是key... key是索引...很奇怪 -->
+            <li v-for="(k, v) in json">
+                {{k}} {{v}} 
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        
+        new Vue({
+            el: '#box',
+            data: {
+                msg: "1111",
+                msg1: "welcome",
+                arr: ["apple","orange"],
+                json: {"a": "apple", "b": "orange"}
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+
+        <!-- Vue的基本时间click mouseover mouseout dbclick mouserdown-->
+        <input type="button" value="button" v-on:click="show()">
+        <input type="button" value="button" v-on:click="add()">
+        <input type="button" value="button" v-on:mouseover="add()">
+        <hr/>
+        <ul>
+            <!-- vue的数据循环 vue2.x后可改写成 v-for="(value,index) in arr" {{value}}{{index}}实现索引 -->
+            <li v-for="(value, index) in arr">
+                {{value}} {{index}}
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        //当前的Vue对象
+        new Vue({
+
+            //筛选器
+            el: '#box',
+            //数据
+            data: {
+                msg: "1111",
+                msg1: "welcome",
+                arr: ["apple", "orange"],
+                json: { "a": "apple", "b": "orange" }
+            },
+            //方法
+            methods: {
+                show: function () {
+                    alert(1);
+                },
+                add: function () {
+                    //this指当前的Vue对象
+                    this.arr.push("lemon");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
