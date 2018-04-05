@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../assets/js/vue1.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#box",
+                data: {
+
+                },
+                methods: {
+                    show: function (e) {
+                        alert(e.clientX);
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <!-- 事件的简写 和原生自带的参数$event -->
+        <input type="button" value="按钮" @click="show($event)">
+    </div>
+
+</body>
+
+</html>

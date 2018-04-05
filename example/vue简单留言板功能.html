@@ -9,7 +9,7 @@
     <script src="../assets/js/jquery-1.11.1.min.js"></script>
     <script src="../assets/js/bootstrap.js"></script>
 
-    <script src="../assets/js/vue.js"></script>
+    <script src="../assets/js/vue1.js"></script>
 
     <script>
         window.onload = function () {  
@@ -31,6 +31,14 @@
                         })
                         this.username = '',
                         this.age = ''
+                    },
+                    deleteMsg: function (n) {  
+                       if (n == -2) {
+                           this.myData = [];
+                       }
+                       else{
+                           this.myData.splice(n, 1)
+                       }
                     }
                 }
             })
@@ -64,17 +72,18 @@
                 <th class="text-center">操作</th>
             </tr>
             <!-- vue2.0 版本for的变化 item 和 index 的顺序不可变 -->
-            <tr class="text-center" v-for="(item, index) in myData">
-                <td>{{index+1}}</td>
+            <!-- vue1.0 下面是1.0的操作方式 -->
+            <tr class="text-center" v-for="item in myData">
+                <td>{{$index+1}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.age}}</td>
                 <td>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#layer" v-on:click="nowIndex = index">删除</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#layer" v-on:click="nowIndex = $index">删除</button>
                 </td>
             </tr>
             <tr v-show="myData.length != 0">
                 <td colspan="4" class="text-right">
-                <button type="button" class="btn btn-danger">全部删除</button>
+                <button type="button" class="btn btn-danger" v-on:click="nowIndex = -2" data-toggle="modal" data-target="#layer">全部删除</button>
                 </td>
                 
             </tr>
@@ -86,7 +95,7 @@
         </table>
 
         <!-- 模态框 -->
-        <div role="dialog" class="modal fade" id="layer" v-model="nowIndex" data-index="{{nowIndex}}">
+        <div role="dialog" class="modal fade bs-example-modal-sm" id="layer" data-index="{{nowIndex}}">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -99,7 +108,7 @@
                     <div class="modal-body text-right">
                         
                         <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">确认</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" v-on:click="deleteMsg(nowIndex)">确认</button>
                     </div>
                 </div>
             </div>
