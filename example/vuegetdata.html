@@ -15,7 +15,7 @@
                 methods: {
                     get: function () {  
                         // get请求 .then(成功方法, 失败方法)
-                        this.$http.get('get.php', {a: 1, b: 2}).then(function (result) {
+                        this.$http.get('http://localhost:8083/SYJW/project/all', {a: 1, b: 2}).then(function (result) {
                             debugger;
                             var data = result.data;
        
