@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red
+        }
+
+        .blue {
+            background: blue
+        }
+    </style>
+    <script src="../assets/js/vue1.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#box",
+                data: {
+                    c: {color: 'red'},
+                    //注意 background-color一定要写成backgroundColor 
+                    d: {backgroundColor: 'blue'},
+                    json: {
+                        color: 'red',
+                        backgroundColor: 'grey'
+                    }  
+                },
+
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <!-- vue中给style赋值的用法 -->
+        <!-- :style="{}" -->
+        <div :style="{color:'red'}" style="margin-bottom: 50px;">
+            style第一种操作方式...
+        </div>
+        <br/>
+
+        <!-- :style="[]" -->
+        <div :style="[c, d]" style="margin-bottom: 50px;">
+            style第二种操作方式...
+            注意 background-color一定要写成backgroundColor 
+        </div>
+
+        <!-- :style="json字符串" -->
+        <div :style="json" style="margin-bottom: 50px;">
+            style第三种操作方式... 
+        </div>
+    </div>
+</body>
+
+</html>

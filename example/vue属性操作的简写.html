@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../assets/js/vue1.js"></script>
+    <script>
+        window.onload = function () {  
+            new Vue({
+                el: "#box",
+                data: {
+                    url: "https://www.baidu.com/img/qmypf_11d9f0473754823b4e924ff99ca3ebd4.png",
+                },
+                
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <!-- vue1.0 的形式 -->
+        <!-- 属性 src title width... -->
+        <img :src="url" alt="">
+    </div>
+</body>
+</html>

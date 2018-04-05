@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red
+        }
+        .blue{
+            background: blue
+        }
+
+    </style>
+    <script src="../assets/js/vue1.js"></script>
+    <script>
+        window.onload = function () {  
+            new Vue({
+                el: "#box",
+                data: {
+                    url: "https://www.baidu.com/img/qmypf_11d9f0473754823b4e924ff99ca3ebd4.png",
+                    red: 'red',
+                    blue: 'blue'
+                },
+                
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <!-- vue中给class赋值的用法 -->
+        <!-- :class="[data中的属性名]" -->
+        <div :class="[red, blue]" style="margin-bottom: 50px;">
+            class第一种操作方式...
+        </div>
+        <br/>
+        <!-- true和false也可以给数据 -->
+        <div :class="{red:true, blue:true}" style="margin-bottom: 50px;">
+            class第二种操作方式...
+        </div>
+        
+    </div>
+</body>
+</html>

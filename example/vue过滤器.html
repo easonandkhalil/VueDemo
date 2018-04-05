@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script src="../assets/js/vue1.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#box",
+                data: {
+                   
+                },
+
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        
+        <!-- {{msg | filterA | filterB}} -->
+        <!-- {{msg | filterA 参数}} -->
+        {{'welcome'|uppercase}}
+
+        {{'welcome'|capitalize}}
+
+        {{'WELCOME'|lowercase|capitalize}}
+    </div>
+</body>
+
+</html>
