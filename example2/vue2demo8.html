@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue2.0实例</title>
+    <script src="../assets/js/vue2.js"></script>
+    <script>
+        window.onload = function () {  
+            var data = {a: 1};
+
+            //实例
+            var vm = new Vue({
+                el: "#app1",
+                data: data,
+                updated: function () {  
+                    console.log("实力更新了");
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+    <div id="app1">
+        <input type="text" v-model="a"/>
+    </div>
+</body>
+</html>
