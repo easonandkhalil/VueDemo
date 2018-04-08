@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组操作</title>
+</head>
+<body>
+    <script>
+
+        //创建空数组
+        var array11 = new Array(); 
+
+        //指定长度 可越界
+        var array12 = new Array();
+
+        //定义并赋值
+        var array13 = new Array('a', 'b', 'c', 1, 2, 3, true, false);
+
+        //空数组 语法糖
+        var array14 = [];
+
+        //定义并赋值
+        var array15 = [1, 2, 3, 'x', 'y'];
+
+        //访问与修改
+        array12[8] = "hello array12";
+        //取值
+        console.log(array12[8]);
+
+        //遍历
+        for(var i = 0; i< array13.length; i++){
+            console.log("array13["+i+"]=" + array13[i]);
+        } 
+
+        //枚举
+        for (var i in array15) {
+            console.log("array15["+i+"]=" + array15[i]);
+            
+        }
+
+        //添加元素
+        var array31 = [5, 8];
+        
+        //末尾添加
+        array31.push(9);
+
+        //.push返回数组长度
+        var len = array31.push(10, 11);
+
+        console.log("array31的长度是: " + len);
+
+        //添加到开始
+        array31.unshift(4);
+        var len = array31.unshift(1, 2, 3);
+        console.log("array31 unshift添加之后的长度是: " + len + "----" + array31);
+
+        //添加到
+        //从第五位开始插入 删除第五位后的一个元素, 返回被删除元素
+        //.splice(第几位后, 删除几个元素, 添加的元素(可以多个))
+        var e = array31.splice(5, 2, 6, 7);
+        console.log("array31 splice添加之后被删除的是: " + e + "----" + array31);
+
+        //删除
+        var array41 = [1, 2, 3, 4, 5, 6, 7, 8];
+        console.log("array41:" + array41);
+
+        //
+    </script>
+</body>
+</html>
