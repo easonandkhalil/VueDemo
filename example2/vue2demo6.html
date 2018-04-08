@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <title>Document</title>
+    <script src="../assets/js/vue2.js"></script>
+    <script>
+        window.onload = function () {  
+            //添加组件
+            //通过props来解耦
+            Vue.component('todo-item',{
+                props: ['info', 'vtitle'],
+                template: "<li>{{info||'empty'}}</li>"
+            });
+
+            Vue.component('student-item', {
+                props: ['stu'],
+                template: '<li>{{stu.name}} - {{stu.age}}</li>'
+            });
+
+            var app1 = new Vue({
+                el: "#app1",
+                data: {
+                    students: [
+                        {'name': 'tom', 'age': 18},
+                        { 'name': 'jay', 'age': 38},
+                        { 'name': 'rose', 'age': 29}
+                    ]
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="app1">
+        <ol>
+            <todo-itme info="Hello Component"></todo-itme>
+        </ol>
+        <ol>
+            <student-item v-for="item in students" v-bind:stu="item" v-bind:key="item.name"></student-item>
+        </ol>
+    </div>
+</body>
+</html>
