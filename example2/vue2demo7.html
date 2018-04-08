@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <title>简单购物车</title>
+    <style>
+        .bg {
+            background: dodgerblue;
+            color: white;
+        }
+    </style>
+    <script src="../assets/js/vue2.js"></script>
+    <script>
+        window.onload = function () {
+            Vue.filter('currency', function (v, n) {
+                if (!v) {
+                    return "";
+                }
+                return "￥" + v.toFixed(n || 2);
+            })
+            new Vue({
+                el: "#app1",
+                data: {
+                    orderby: "",
+                    isAsc: true,
+                    products: [{
+                        title: "paint pot",
+                        quantity: 9,
+                        price: 3.95
+                    }, {
+                        title: "polka dots",
+                        quantity: 17,
+                        price: 12.3
+                    }, {
+                        title: "pebbles",
+                        quantity: 5,
+                        price: 6.71
+                    }, {
+                        title: "Mi Note5",
+                        quantity: 8,
+                        price: 2985.6
+                    }, {
+                        title: "iPhone XS",
+                        quantity: 10,
+                        price: 8906.72
+                    }]
+                },
+                computed: {
+                    total: function () {  
+                        var sum = 0;
+                        for (var i = 0; i < this.products.length; i++) {
+                            sum += (this.products[i].price*this.products[i].quantity);
+                            
+                        }
+                        return sum;
+                    }
+                },
+                methods: {
+                    remove: function (i) {  
+                        if (confirm('确认删除吗?')) {
+                            this.products.splice(i, 1);
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app1">
+        <h2>购物车</h2>
+        <table border="1" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+                <th>序号</th>
+                <th>名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="(pdt, index) in products" v-bind:class="{bg:index%2==0}">
+                <td>{{index+1}}</td>
+                <td>{{pdt.title}}</td>
+                <td>{{pdt.price}}</td>
+                <td>
+                    <button type="button" v-on:click="pdt.quantity<=0?0:(pdt.quantity-=1)">-</button>
+                    <input v-model="pdt.quantity" style="width:80px;" v-on:keyup="pdt.quantity=(pdt.quantity<0?0:pdt.quantity)" />
+                    <button type="button" v-on:click="pdt.quantity+=1">+</button>
+                </td>
+                <td>
+                    {{pdt.quantity*pdt.price | currency(1)}}
+                </td>
+                <td>
+                    <button type="button" v-on:click="remove(index)">
+                        移除
+                    </button>
+                </td>
+            </tr>
+            <tr colspan="6" align="right">
+                {{total | currency}}
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
