@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue2.0监听交互处理</title>
+    <script src="../assets/js/vue2.js"></script>
+    <script>
+        window.onload = function () {  
+            var app5 = new Vue({
+                el: "#app5",
+                data: {
+                    message: "vue2事件"
+                },
+                methods: {
+                    showMe: function () {  
+                        this.message = this.message.split("").reverse().join("");
+                    }
+                }
+            });
+
+            var app6 = new Vue({
+                el: "#app6",
+                data: {
+                    n1: 0,
+                    n2: 0
+                },
+                
+                //Vue的计算属性
+                computed: {
+                    sum: function () {  
+                        return parseInt(this.n1) + parseInt(this.n2);
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <h3>v-on</h3>
+    <div id="app5">
+        <button v-on:click="showMe">
+            {{message}}
+        </button>
+        <input v-model="message"/>
+    </div>
+    <p id="app6">
+        <button v-on:click="n1+=1">
+            +
+        </button>
+        <input v-model="n1"/>+ <input v-model="n2"/>= <input v-model="sum"/>
+    </p>
+</body>
+</html>
