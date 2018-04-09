@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {  
+            var btns = document.getElementsByTagName('input');
+            //i的问题
+            // for (var i = 0; i < btns.length; i++) {
+            //     btns[i].onclick = function () {  
+            //         alert(i);
+            //     }
+                
+            // }
+
+            //用一个封闭立即执行的函数...很麻烦
+            for (var i = 0; i < btns.length; i++) {
+                (function (i) {  
+                    btns[i].onclick = function () {  
+                        alert(i);
+                    }
+                })(i)
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮1">
+    <input type="button" value="按钮2">
+    <input type="button" value="按钮3">
+</body>
+</html>
