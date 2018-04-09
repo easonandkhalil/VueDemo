@@ -18,10 +18,17 @@
             el: "#box",
             data: {
                 t1: '',
+                now: -1,
                 myData: []
             },
             methods: {
-                get: function () {  
+                get: function (e) {  
+                    if (e.keyCode == 38 || e.keyCode == 40) {
+                        return;
+                    }
+                    if (e.keyCode == 13) {
+                        window.open("https://www.baidu.com/s?wd=" + this.t1)
+                    }
                     this.$http.jsonp("https://sug.so.360.cn/suggest", {
                         params: {
                             word: this.t1
@@ -35,6 +42,22 @@
                         console.log("发送失败" + response.status + "," + response.statusText);
                     });  
 
+                },
+
+                changeDown: function () {  
+                    this.now++;
+                    if (this.now == this.myData.length) {
+                        this.now = -1;
+                    }
+                    this.t1 = this.myData[this.now];
+                },
+
+                changeUp: function () {  
+                    this.now--;
+                    if (this.now == -2) {
+                        this.now = this.myData.length;
+                    }
+                    this.t1 = this.myData[this.now];
                 }
             }
         })
@@ -43,7 +66,8 @@
 </head>
 <body>
     <div id="box">
-        <input type="text" v-model="t1" @keyup="get()">
+        <input type="text" v-model="t1" @keyup="get($event)" @keydown.down="changeDown()" @keydown.up.prevent
+        ="changeUp()">
         <ul>
             <li v-for="value in myData" :class="{grey:$index==now}">
                 {{value}}
