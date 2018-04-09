@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../assets/js/vue1.js"></script>
+    <script src="../assets/js/vue-resource.js"></script>
+    <script>
+        window.onload = function () {  
+            new Vue({
+                el: "body",
+                data: {
+
+                },
+                methods: {
+                    get: function () {  
+                        this.$http.jsonp(
+                            'https://sug.so.360.cn/suggest', {
+                                word: 'a'
+                            }, {
+                                jsonp:'callback' //默认名字是callback 可以自定义
+                            }
+                        ).then(
+                            function (res) {
+                                debugger;
+                                var result = res.data.s;
+                                alert(res.data.s)
+                            },
+                            function (res) {
+                                res.status
+                            }
+                        )
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" @click="get()">
+</body>
+</html>
