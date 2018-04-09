@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .grey{
+            background: #cccccc;
+        }
+    </style>
+    <script src="../assets/js/vue1.js"></script>
+    <script src="../assets/js/vue-resource.js"></script>
+    <script>
+    window.onload = function () {  
+        new Vue({
+            el: "#box",
+            data: {
+                t1: '',
+                myData: []
+            },
+            methods: {
+                get: function () {  
+                    this.$http.jsonp("https://sug.so.360.cn/suggest", {
+                        params: {
+                            word: this.t1
+                        }
+                    }).then(function (resp) {
+                        debugger;
+                        var result = resp;
+                        this.myData = resp.data.s;
+                        console.log(resp.data.s);
+                    }, function () {
+                        console.log("发送失败" + response.status + "," + response.statusText);
+                    });  
+
+                }
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input type="text" v-model="t1" @keyup="get()">
+        <ul>
+            <li v-for="value in myData" :class="{grey:$index==now}">
+                {{value}}
+            </li>
+        </ul>
+        <p v-show="myData.length == 0">暂无数据...</p>
+    </div>
+</body>
+</html>
