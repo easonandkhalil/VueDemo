@@ -7,7 +7,21 @@
     <title>Document</title>
     <script>
         window.onload=()=>{
-            alert("1")
+            alert("1");
+
+            let arr = [33, 66, 3, 8, 9, 2, 43];
+            
+            //数组排序 sort()中增加比较函数  否则排序不正确
+            // arr.sort(function (a, b) {  
+            //     return a - b;
+            // })
+            // alert(arr);
+
+            //用es6的=>
+            arr.sort((a, b)=>{
+                return a - b;
+            });
+            alert(arr);
         }
     </script>
 </head>
