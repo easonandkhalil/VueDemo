@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //filter 过滤器
+
+        let arr = [12, 3, 4, 5, 6, 9 ,21, 11];
+
+        // let result = arr.filter(function (item) {  
+        //     if (item%3 == 0) {
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // })
+
+        // let result = arr.filter(function (item) {
+        //     return item%3 ==0;
+        // })
+
+
+        let result = arr.filter(item=>item%3==0)
+
+        alert(result);
+
+        let json = [
+            { title: "男士衬衫", price: 100 },
+            { title: "女式包", price: 20000 },
+            { title: "男士包", price: 9000 },
+            { title: "女士鞋", price: 5000 },
+        ];
+
+        let jsonReuslt = json.filter(item=>item.price>6000)
+        console.log(jsonReuslt);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //reduce 汇总
+
+        let arr = [12, 890, 670];
+
+        // 第一次 12 + 890
+        // 第二次 12 + 890 的结果 + 670
+        let result = arr.reduce(function (tmp, item, index) {
+            return tmp + item;
+        })
+        alert(result);
+        //平均数
+
+        let avg = arr.reduce(function (tmp, item, index) {  
+            if (index != arr.length -1) {
+                return tmp + item;
+            }
+            else{
+                return (tmp + item)/arr.length;
+            }
+        })
+        alert(avg);
+       
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

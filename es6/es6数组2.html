@@ -6,16 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
+        let score = [50, 59, 99, 80, 85, 40];
+
+        //let result = score.map(item => item>=60?'及格':'不及格');
+
+        //map 映射
+        let result = score.map(function (item) {  
+            return item>=60?'及格':'不及格'
+        })
+        alert(result);
 
         
-        function show(a, b, ...args) {  
-            alert(a);
-            alert(b);
 
-            alert(args);
-        }
-
-        show(1, 6, [4, 89, 0]);
     </script>
 </head>
 <body>

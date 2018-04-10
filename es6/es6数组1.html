@@ -6,16 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
+        let arr = [12, 5, 8];
+
+        let result = arr.map(function (item) {  
+            return item*2;
+        })
+        alert(result);
 
         
-        function show(a, b, ...args) {  
-            alert(a);
-            alert(b);
 
-            alert(args);
-        }
-
-        show(1, 6, [4, 89, 0]);
     </script>
 </head>
 <body>
