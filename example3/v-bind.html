@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind 用来绑定标签上的属性</title>
+    <script src="../assets/js/vue2.js"></script>
+    <script>
+        window.onload = function () {  
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    imgSrc: 'https://cn.vuejs.org/images/logo.png',
+                    className: 'classA'
+                }
+            })
+        }
+    </script>
+    <style>
+        .classA{
+            color:red
+        }
+
+        .classB{
+            font-size: 18px
+        }
+    </style>
+</head>
+<body>
+    <h3>v-bind:属性  或者 :属性</h3>
+    
+    <div id="app">
+        <img v-bind:src="imgSrc">
+        <h3>直接绑定css class</h3>
+        <div :class="className">
+            5555555
+        </div>
+    </div>
+
+    
+</body>
+</html>

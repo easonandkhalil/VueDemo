@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../assets/js/vue2.js"></script>
+    <script>
+        window.onload = function () {  
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    items: [25, 23, 6, 5, 90, 67],
+                    students: [
+                        { name: 'jspang', age: 32 },
+                        { name: 'Panda', age: 30 },
+                        { name: 'PanPaN', age: 21 },
+                        { name: 'King', age: 45 }
+                    ]
+                },
+
+                //计算方法在处理data中的数据时需要重新定义对象 而且你需要把模版中的属性也写成计算方法中的新定义对象
+                computed: {
+                    sortItems: function () {  
+                        return this.items.sort(function (a, b) {return a - b});
+                    },
+
+                    sortStudents: function () {  
+                        return this.students.sort(function (a,  b) { 
+                            return a.age - b.age
+                        })
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <h1>v-for用法</h1>
+    <hr>
+    <div id="app">
+        <ul>
+            <li v-for="item in sortItems">
+                {{item}}
+            </li>
+            <!-- 输出对象 并 输出序列 -->
+            <li v-for="(student, index) in sortStudents">
+                {{index}}: {{student.name}} - {{student.age}}
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>
