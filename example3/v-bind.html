@@ -12,7 +12,10 @@
                 el: '#app',
                 data: {
                     imgSrc: 'https://cn.vuejs.org/images/logo.png',
-                    className: 'classA'
+                    className: 'classA',
+                    isOk: true,
+                    classA: 'classA',
+                    classB: 'classB'
                 }
             })
         }
@@ -23,18 +26,32 @@
         }
 
         .classB{
-            font-size: 18px
+            font-size: 22px
         }
     </style>
 </head>
 <body>
-    <h3>v-bind:属性  或者 :属性</h3>
+    
     
     <div id="app">
+        <h3>v-bind:属性 或者 :属性</h3>
         <img v-bind:src="imgSrc">
         <h3>直接绑定css class</h3>
         <div :class="className">
             5555555
+        </div>
+        <h3>直接绑定class中的判断</h3>
+        <div :class="{classA:isOk}">
+            666
+        </div>
+        <div :class="[{classA:isOk}, classB]">
+            绑定classA 和 classB
+        </div>
+        <hr>
+        <h3>checkbox绑定class中的判断</h3>
+        <div>
+            <input type="checkbox" id="isOk" v-model="isOk">
+            <label for="isOk">isOk={{isOk}}</label>
         </div>
     </div>
 
