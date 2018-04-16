@@ -10,6 +10,7 @@
         window.onload = function () {
 
             //'eason' 和 'v-eason' 的对应关系
+            //自定义指令
             Vue.directive('eason', function (app1, binding, vnode) {  
                 app1.style = 'color:' + binding.value;
             });
