@@ -44,7 +44,7 @@
         <input type="checkbox"  id="isTure" v-model="isTrue">
         <label for="isTrue">{{isTrue}}</label>
         <hr>
-        <h3>多选框绑定多个值(数组)</h3>
+        <h3>多选框绑定多个值(数组)  此处如果想给input的value动态赋值  应该写成 :value = '被循环的对象.属性'</h3>
         <input type="checkbox" id="a" value="a" v-model="web_names">
         <label for="a">a</label>
         <input type="checkbox" id="b" value="b" v-model="web_names">

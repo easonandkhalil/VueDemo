@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.directive自定义绑定</title>
+    <script src="../assets/js/vue2.js"></script>
+    <script>
+        window.onload = function () {
+
+            //'eason' 和 'v-eason' 的对应关系
+            Vue.directive('eason', function (app1, binding, vnode) {  
+                app1.style = 'color:' + binding.value;
+            });
+
+            var app1 = new Vue({
+                el: '#app1',
+                data: {
+                    num: 10,
+                    color: 'red'
+                },
+                methods: {
+                    add: function () {  
+                        this.num++;
+                    }
+                }
+            });
+
+            var app2 = new Vue({
+                el: '#app2',
+                data: {
+                    num: 10,
+                    color: 'blue'
+                },
+                methods: {
+                    add: function () {
+                        this.num++;
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="app1">
+        <div v-eason="color" id="demo">
+            {{num}}
+        </div>
+        <div>
+            <button @click="add">Add</button>
+        </div>
+    </div>
+    <div id="app2">
+        <div v-eason="color" id="demo2">
+            {{num}}
+        </div>
+        <div>
+            <button @click="add">Add</button>
+        </div>
+    </div>
+</body>
+</html>
