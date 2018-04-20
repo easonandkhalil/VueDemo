@@ -25,7 +25,11 @@
                         this.count = this.count + parseInt(this.secondCount);
                     }
                 }
-            })
+            });
+
+            document.getElementById('555').onclick = function () {  
+                alert(555)
+            }
         }
     </script>
 </head>
@@ -38,6 +42,9 @@
         <button v-on:click="del">减分</button><br/>
         onEnter : {{secondCount}}
         <input type="text" v-on:keyup.enter="onEnter" v-model="secondCount">
+        <div id="555">
+            555
+        </div>
     </div>
 </body>
 </html>
