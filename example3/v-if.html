@@ -12,7 +12,7 @@
             var app = new Vue({
                 el: '#app',
                 data: {
-                    isLogin: true
+                    isLogin: false
                 }
             })
         } 
@@ -22,8 +22,9 @@
 <body>
     <h1> v-if 判断是否加载</h1>
     <hr>
-    <div id="app">
-        <div v-if="isLogin">
+    <div id="app" v-if="isLogin">
+        1111
+        <!-- <div v-if="isLogin">
             你好: ztl
         </div>
         <div v-else>
@@ -35,7 +36,7 @@
         </div>
         <div v-show="!isLogin">
             请登录后操作
-        </div>
+        </div> -->
     </div>
 
 </body>
