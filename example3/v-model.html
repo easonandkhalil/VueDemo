@@ -17,7 +17,8 @@
                     areaMessage: '',
                     isTrue: true,
                     web_names:[],
-                    sex: '男'
+                    sex: '男',
+                    from: ''
                 }
             })
         }
@@ -59,6 +60,14 @@
         <label for="isTrue">女</label>
         
         <p>{{sex}}</p>
+
+        <div>
+            你来自哪里 multiple也可以多选
+        </div>
+        <select v-model="from" multiple>
+            <option value="1">王家沟</option>
+            <option value="2">背背山</option>
+        </select>
     </div>
 </body>
 </html>

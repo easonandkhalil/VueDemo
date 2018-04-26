@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../assets/js/vue2.js"></script>
+</head>
+<body>
+    <div id="app">
+        <like></like>
+    </div>
+    <template id="like-component">
+        <button :class="{liked: liked}" @click="toggele_like">点赞 {{like_count}}</button>
+    </template>
+    <script src="./component-like01.js"></script>
+</body>
+</html>

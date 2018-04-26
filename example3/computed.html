@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../assets/js/vue2.js"></script>
+</head>
+<body>
+    <div id="app">
+        v-model.number限制输入的是数字
+        <input type="text" v-model.number="math"><br>
+        <input type="text" v-model.number="physics"><br>
+        <input type="text" v-model.number="eng"><br>
+        {{sum}}
+        {{avg}}
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                math: 90,
+                physics: 80,
+                eng: 70
+            },
+            computed: {
+                sum: function () {  
+                    return parseFloat(this.math) + parseFloat(this.physics) + parseFloat(this.eng)
+                },
+                
+                avg: function () {  
+                    return Math.round(this.sum / 3)
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>
